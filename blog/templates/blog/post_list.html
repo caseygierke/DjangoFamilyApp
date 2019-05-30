@@ -3,10 +3,16 @@
 	
 	{% for post in posts %}
 		<div class="post">
-			<div class="date">
-				<p>Published: {{ post.published_date }}</p>
+			<h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.name }}</a></h1>
+			<div>
+				<p>{{ post.name }}</p>
+				<p>Born on {{ post.date_of_birth }}</p>
+				{% if post.deceased_date is not None %}
+					<p>Died on {{ post.deceased_date }}</p>
+				{% else %}
+					<p>Still with us today</p>
+				{% endif %}
 			</div>
-			<h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
 			<p>{{ post.text|linebreaksbr }}</p>
 		</div>
 	{% endfor %}

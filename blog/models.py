@@ -5,9 +5,10 @@ from django.utils import timezone
 
 class Post(models.Model):
 	author = models.ForeignKey('auth.User', on_delete=models.CASCADE)
-	title = models.CharField(max_length=200)
+	name = models.CharField(max_length=200, unique=True)
 	text = models.TextField()
-	created_date = models.DateTimeField(default=timezone.now)
+	date_of_birth = models.DateTimeField(blank=True, null=True)
+	date_deceased = models.DateTimeField(blank=True, null=True)
 	published_date = models.DateTimeField(blank=True, null=True)
 
 	def publish(self):
