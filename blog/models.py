@@ -10,10 +10,11 @@ class Post(models.Model):
 	date_of_birth = models.DateTimeField(blank=True, null=True)
 	date_deceased = models.DateTimeField(blank=True, null=True)
 	published_date = models.DateTimeField(blank=True, null=True)
+	picture = models.ImageField(blank=True, upload_to='images/', default='images/IMG_3232.JPG')
 
 	def publish(self):
 		self.published_date = timezone.now()
 		self.save()
 
 	def __str__(self):
-		return self.title
+		return self.name

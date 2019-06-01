@@ -5,7 +5,6 @@
 		<div class="post">
 			<h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.name }}</a></h1>
 			<div>
-				<p>{{ post.name }}</p>
 				<p>Born on {{ post.date_of_birth }}</p>
 				{% if post.deceased_date is not None %}
 					<p>Died on {{ post.deceased_date }}</p>
