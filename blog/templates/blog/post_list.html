@@ -12,7 +12,8 @@
 					<p>Still with us today</p>
 				{% endif %}
 			</div>
-			<p>{{ post.text|linebreaksbr }}</p>
+			<!-- <p>{{ post.text|linebreaksbr }}</p> -->
+			<p>{{ post.text|truncatechars:20 }}</p>
 		</div>
 	{% endfor %}
 

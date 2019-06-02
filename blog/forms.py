@@ -8,4 +8,6 @@ class PostForm(forms.ModelForm):
 		# Pick which fields you want it to render, note 
 		# that author will generate a drop down box because 
 		# it uses the foreign key.  We will not use author
-		fields = ('name', 'date_of_birth', 'date_deceased', 'text', 'picture')
+		fields = ('name', 'date_of_birth', 'date_deceased', 'parents', 'spouse', 'children', 'city', 'text', 'picture')
+
+	
