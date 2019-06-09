@@ -30,7 +30,7 @@ def post_new(request):
 		# See all the items in that dictionary object
 		# print(request.__dict__)
 		form = PostForm()
-		stuff_for_frontend = {'form': form, 'post': post}
+		stuff_for_frontend = {'form': form}
 	return render(request, 'blog/post_edit.html', stuff_for_frontend)
 
 @login_required()
