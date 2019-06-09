@@ -47,7 +47,7 @@ h1, h2, h3, h4 {
 	float: right;
 }
 
-.top-menu-add-icon, .top-menu-add-icon:hover {
+.top-menu, .top-menu-add-icon:hover {
 	color: #ffffff;
 	float: right;
 	font-size: 26pt;
