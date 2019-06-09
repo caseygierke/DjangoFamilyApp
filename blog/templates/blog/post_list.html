@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,3 +18,26 @@
 	
 </body>
 </html>
+=======
+{% extends 'blog/base.html' %}
+{% block title %}Gierke Family App{% endblock %}
+{% block content %}
+
+	{% for post in posts %}
+		<div class="post">
+			<h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.name }}</a></h1>
+			<div>
+				<p>Born on {{ post.date_of_birth }}</p>
+				{% if post.deceased_date is not None %}
+					<p>Died on {{ post.deceased_date }}</p>
+				{% else %}
+					<p>Still with us today</p>
+				{% endif %}
+			</div>
+			<!-- <p>{{ post.text|linebreaksbr }}</p> -->
+			<p>{{ post.text|truncatechars:20 }}</p>
+		</div>
+	{% endfor %}
+
+{% endblock %}
+>>>>>>> step_4_login

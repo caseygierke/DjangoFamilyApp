@@ -1,0 +1,19 @@
+{% extend 'blog/base.html' %}
+{% block content %}
+
+	<div class="post">
+		{% if post.published_date %}
+			<div class="date">
+				{{ post.published_date }}
+			</div>
+		{% endif %}
+
+		{% if user.is_authenticated %}
+			<a href="{% url 'post_edit' pk=post.pk %}"><i class="far fa-edit fa-2x fa-spin" style="color: #339af0"></i></a>
+		{% endif %}
+		
+		<h1>{{ post.title }}</h1>
+		<p>{{ post.text|linebreaksbr }}</p>
+	</div>
+
+{% endblock %}
