@@ -1,5 +1,7 @@
 {% extends 'blog/base.html' %}
+{% load markdownify %}
 {% block title %}Gierke Family App{% endblock %}
+
 {% block content %}
 
 	{% for post in posts %}
@@ -16,7 +18,7 @@
 				<a href="{% url 'post_detail' pk=post.pk %}">Comments: {{ post.approved_comments.count }}</a>
 			</div>
 			<!-- <p>{{ post.text|linebreaksbr }}</p> -->
-			<p>{{ post.text|truncatechars:20 }}</p>
+			<p>{{ post.text markdown | safe | | truncatechars:20 }}</p>
 		</div>
 	{% endfor %}
 
