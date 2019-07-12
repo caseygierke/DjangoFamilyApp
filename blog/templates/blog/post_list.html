@@ -12,6 +12,8 @@
 				{% else %}
 					<p>Still with us today</p>
 				{% endif %}
+
+				<a href="{% url 'post_detail' pk=post.pk %}">Comments: {{ post.approved_comments.count }}</a>
 			</div>
 			<!-- <p>{{ post.text|linebreaksbr }}</p> -->
 			<p>{{ post.text|truncatechars:20 }}</p>
