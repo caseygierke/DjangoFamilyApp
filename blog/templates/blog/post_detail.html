@@ -55,9 +55,37 @@
 		
 	</div>
 
+	<hr>
+	<a href="{% url 'add_comment_to_post' pk=post.pk %}" class="btn btn-secondary">Add Comment</a>
+	{% for comment in post.comments.all %}
+		
+		<!-- If the comment is approved, show it -->
+		{% if user.is_authenticated or comment.approved %}
+		<div class="comment">
+			<div class="date">
+				{{ comment.created_date }}
+			</div>
+
+			<!-- Only the superuser has the ability to approve or remove comments -->
+			{% if not comment.approved and user.is_superuser %}
+				<a href="{% url 'comment_approve' pk=comment.pk %}"><i class="fas fa-check"></i></a>
+
+				<a href="{% url 'comment_remove' pk=comment.pk %}"><i class="far fa-trash-alt"></i></a>
+			
+			{% endif %}
+
+			<p><strong>{{ comment.author }}</strong></p>
+			<p>{{ comment.text | linebreaksbr }}</p>
+		</div>
+
+		{% endif %}
+	{% empty %}
+		<p>No comments yet ...</p>
+	{% endfor %}
+
 {% endblock %}
 
-<div class="post">
+<!-- <div class="post">
 			<h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.name }}</a></h1>
 			<div>
 				<p>{{ post.name }}</p>
@@ -70,3 +98,4 @@
 			</div>
 			<p>{{ post.text|linebreaksbr }}</p>
 		</div>
+ -->

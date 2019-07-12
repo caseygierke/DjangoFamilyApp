@@ -1,5 +1,5 @@
 from django import forms
-from .models import Post
+from .models import Post, Comment
 
 class PostForm(forms.ModelForm):
 	class Meta:
@@ -10,4 +10,7 @@ class PostForm(forms.ModelForm):
 		# it uses the foreign key.  We will not use author
 		fields = ('name', 'date_of_birth', 'date_deceased', 'parents', 'spouse', 'children', 'city', 'text', 'picture')
 
-	
+class CommentForm(forms.ModelForm):
+	class Meta:
+		model = Comment
+		fields = ('text',)
