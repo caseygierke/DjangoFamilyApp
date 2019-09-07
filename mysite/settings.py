@@ -27,7 +27,7 @@ DEBUG = True
 
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
-ALLOWED_HOSTS = ['gierkefamily.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'gierkefamily.herokuapp.com','localhost']
 LOGIN_URL = '/accounts/login'
 LOGIN_REDIRECT_URL = 'post_list'
 LOGOUT_REDIRECT_URL = 'post_list'
