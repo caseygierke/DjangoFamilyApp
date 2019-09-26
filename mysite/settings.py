@@ -27,7 +27,8 @@ DEBUG = True
 
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
-ALLOWED_HOSTS = ['127.0.0.1', 'gierkefamily.herokuapp.com','localhost']
+ALLOWED_HOSTS = ['.albugierke.com', '127.0.0.1', 'gierkefamily.herokuapp.com','localhost']
+# ALLOWED_HOSTS = ['*']
 LOGIN_URL = '/accounts/login'
 LOGIN_REDIRECT_URL = 'post_list'
 LOGOUT_REDIRECT_URL = 'post_list'
@@ -88,10 +89,10 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'django_family',
-        'USER': 'postgres',
+        'USER': 'super',
         'PASSWORD': 'Phr3atic',
-        'HOST': 'localhost',
-        'PORT': '',
+        'HOST': 'caseygierke-1331.postgres.pythonanywhere-services.com',
+        'PORT': '11331',
     }
 }
 
@@ -149,6 +150,6 @@ STATICFILES_DIRS = (
 #  Add configuration for static files storage using whitenoise
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-import dj_database_url 
+import dj_database_url
 prod_db  =  dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(prod_db)
