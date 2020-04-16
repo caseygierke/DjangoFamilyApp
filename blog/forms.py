@@ -8,8 +8,8 @@ class PostForm(forms.ModelForm):
 	class Meta:
 		# Select the model to generate
 		model = Post
-		# Pick which fields you want it to render, note 
-		# that author will generate a drop down box because 
+		# Pick which fields you want it to render, note
+		# that author will generate a drop down box because
 		# it uses the foreign key.  We will not use author
 		fields = ('name', 'date_of_birth', 'date_deceased', 'parents', 'spouse', 'children', 'city', 'text', 'picture')
 
@@ -25,4 +25,4 @@ class UserForm(forms.ModelForm):
 	helper.add_input(Submit('Sign up', 'Sign up', css_class='btn-primary'))
 	class Meta:
 		model = User
-		fields = ('username', 'email', 'password',)
+		fields = ('id', 'username', 'email', 'password',)
